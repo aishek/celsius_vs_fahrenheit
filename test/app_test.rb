@@ -6,7 +6,7 @@ class AppTest < MiniTest::Unit::TestCase
     expected = <<~TEXT
       Input °C:
       1
-      33 °F
+      33.8 °F
     TEXT
     assert_equal expected, app_output(input: "1")
   end
