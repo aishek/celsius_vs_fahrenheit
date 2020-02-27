@@ -8,6 +8,11 @@ if input.match?(/\d*(.|,)?\d*\s*c\s*/i)
 
   puts "#{fahrenheit_degrees.to_i == fahrenheit_degrees ? fahrenheit_degrees.to_i : fahrenheit_degrees}°F"
   puts "#{kelvin_degrees.to_i == kelvin_degrees ? kelvin_degrees.to_i : kelvin_degrees}°K"
+
+  require 'csv'
+  CSV.open("log.csv", "ab", col_sep: ';') do |csv|
+    csv << ["#{celsius_degrees}°C", "#{fahrenheit_degrees}°F", "#{kelvin_degrees}°K", Time.now]
+  end
 elsif input.match?(/\d*(.|,)?\d*\s*k\s*/i)
   kelvin_degrees = input.gsub(',', '.').to_f
 
@@ -16,6 +21,11 @@ elsif input.match?(/\d*(.|,)?\d*\s*k\s*/i)
 
   puts "#{celsius_degrees.to_i == celsius_degrees ? celsius_degrees.to_i : celsius_degrees}°C"
   puts "#{fahrenheit_degrees.to_i == fahrenheit_degrees ? fahrenheit_degrees.to_i : fahrenheit_degrees}°F"
+
+  require 'csv'
+  CSV.open("log.csv", "ab", col_sep: ';') do |csv|
+    csv << ["#{kelvin_degrees}°K", "#{celsius_degrees}°C", "#{fahrenheit_degrees}°F", Time.now]
+  end
 else
   fahrenheit_degrees = input.gsub(',', '.').to_f
 
@@ -24,4 +34,9 @@ else
 
   puts "#{celsius_degrees.to_i == celsius_degrees ? celsius_degrees.to_i : celsius_degrees}°C"
   puts "#{kelvin_degrees.to_i == kelvin_degrees ? kelvin_degrees.to_i : kelvin_degrees}°K"
+
+  require 'csv'
+  CSV.open("log.csv", "ab", col_sep: ';') do |csv|
+    csv << ["#{fahrenheit_degrees}°F", "#{celsius_degrees}°C", "#{kelvin_degrees}°K", Time.now]
+  end
 end
