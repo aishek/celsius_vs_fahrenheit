@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require './lib/app'
 
-class TestApp < MiniTest::Unit::TestCase
+class AppTest < MiniTest::Unit::TestCase
   def test_correct_convert_one_celcius
     expected = <<~TEXT
       Input °C:
