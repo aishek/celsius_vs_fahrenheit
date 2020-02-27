@@ -2,11 +2,15 @@
 
 Требования:
 * ruby 2.6.5
+* bundler 2.1.2
+
+`make setup`
 
 # Запуск
 
-`ruby celsius_vs_fahrenheit.rb`
+`make run`
 
 # Тесты
 
-`ruby test/app_test.rb`
+`make tests`
+`make tests-watch`
