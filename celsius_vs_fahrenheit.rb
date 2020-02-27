@@ -1,6 +1,6 @@
 puts 'Input degrees ° (C or F at the end):'
 input = gets
-if input.end_with?("C\n")
+if input.match?(/\d*(.|,)?\d*\s*c\s*/i)
   celsius_degrees = input.gsub(',', '.').to_f
   fahrenheit_degrees = celsius_degrees * 1.8 + 32
 
