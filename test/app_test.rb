@@ -20,6 +20,24 @@ class AppTest < MiniTest::Unit::TestCase
     assert_equal expected, app_output(input: "0")
   end
 
+  def test_correct_convert_2_dot_3_celcius
+    expected = <<~TEXT
+      Input °C:
+      2.3
+      36.14 °F
+    TEXT
+    assert_equal expected, app_output(input: "2.3")
+  end
+
+  def test_correct_convert_2_comma_3_celcius
+    expected = <<~TEXT
+      Input °C:
+      2,3
+      36.14 °F
+    TEXT
+    assert_equal expected, app_output(input: "2,3")
+  end
+
   private
 
   def app_output(input:)
