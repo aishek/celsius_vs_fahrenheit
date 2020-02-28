@@ -1,6 +1,6 @@
 require './lib/console'
-require './lib/degrees'
-require './lib/celcius_degrees_input'
+require './lib/degrees_input'
+require './lib/conversion_result'
 
 class App
   def initialize(console: Console.new)
@@ -8,11 +8,11 @@ class App
   end
 
   def run
-    @console.puts "Input °C:"
+    @console.puts "Input °C or °F:"
 
-    celcius_degrees = CelciusDegreesInput.new(@console.gets).to_f
-    fahrenheit_degrees = Degrees.new(celcius_degrees * 1.8 + 32, unit: "°F")
+    degrees_input = DegreesInput.new(@console.gets)
+    result = ConversionResult.new(degrees_input)
 
-    @console.puts fahrenheit_degrees
+    @console.puts result
   end
 end
