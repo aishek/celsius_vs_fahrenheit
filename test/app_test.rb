@@ -20,6 +20,15 @@ class AppTest < MiniTest::Unit::TestCase
     assert_equal expected, app_output(input: "0C\n")
   end
 
+  def test_correct_convert_zero_celcius_lowercase_spaces
+    expected = <<~TEXT
+      Input °C or °F:
+      0   c
+      32 °F
+    TEXT
+    assert_equal expected, app_output(input: "0   c\n")
+  end
+
   def test_correct_convert_2_dot_3_celcius
     expected = <<~TEXT
       Input °C or °F:
@@ -45,6 +54,15 @@ class AppTest < MiniTest::Unit::TestCase
       0 °C
     TEXT
     assert_equal expected, app_output(input: "32F\n")
+  end
+
+  def test_correct_convert_fahrenheit_to_celcius_spaces_lowercase
+    expected = <<~TEXT
+      Input °C or °F:
+      32 f
+      0 °C
+    TEXT
+    assert_equal expected, app_output(input: "32 f\n")
   end
 
   private

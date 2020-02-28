@@ -4,15 +4,15 @@ class DegreesInput
   end
 
   def celsius?
-    @value.end_with?("C\n")
+    @value.match?(/\s*c\s*\n/i)
   end
 
   def fahrenheit?
-    @value.end_with?("F\n")
+    @value.match?(/\s*f\s*\n/i)
   end
 
   def to_f
-    number = @value.gsub(/(C|F)\n$/, '').gsub(',', '.')
+    number = @value.gsub(/\s*(c|f)\s*\n$/i, '').gsub(',', '.')
     number.to_f
   end
 end
